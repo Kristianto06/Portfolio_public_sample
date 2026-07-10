@@ -100,7 +100,7 @@ export default function ExperienceSection() {
 
       <div className="relative max-w-4xl">
         {/* Vertical line */}
-        <div className="absolute left-[19px] md:left-[99px] top-0 bottom-0 w-[1px] bg-[#e0dcd6]" />
+        <div className="absolute left-[20px] md:left-[100px] top-0 bottom-0 w-[1px] bg-[#e0dcd6]" />
 
         {experienceData.map((exp, i) => (
           <div

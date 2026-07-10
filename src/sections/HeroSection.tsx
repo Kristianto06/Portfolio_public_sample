@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import KineticMatrix from '../components/KineticMatrix';
-
 export default function HeroSection() {
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -35,9 +33,8 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#f8f6f3] to-white"
     >
-      <KineticMatrix />
       <div
         ref={textRef}
         className="relative z-10 text-center px-8 max-w-2xl"

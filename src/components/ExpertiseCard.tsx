@@ -1,4 +1,3 @@
-import { Hexagon } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -39,7 +38,9 @@ export default function ExpertiseCard({ title, description, delay = 0 }: Experti
       className="flex flex-col items-center text-center p-6 group"
     >
       <div className="w-[70px] h-[70px] flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-        <Hexagon size={60} strokeWidth={1.5} className="text-[#F5B304]" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#F5B304" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+        </svg>
       </div>
       <h4 className="text-[13px] font-medium tracking-[0.1em] uppercase text-brand-primary mb-3">
         {title}
