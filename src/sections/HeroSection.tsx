@@ -1,7 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+
 export default function HeroSection() {
   const textRef = useRef<HTMLDivElement>(null);
+  const [typedName, setTypedName] = useState('');
+  const fullName = 'Fitrianah';
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -27,7 +30,25 @@ export default function HeroSection() {
         delay: 0.9,
       });
     }, textRef);
-    return () => ctx.revert();
+
+    // Typing effect
+    let timeout: ReturnType<typeof setTimeout>;
+    let currentIndex = 0;
+    
+    const typeChar = () => {
+      if (currentIndex <= fullName.length) {
+        setTypedName(fullName.slice(0, currentIndex));
+        currentIndex++;
+        timeout = setTimeout(typeChar, 150);
+      }
+    };
+    
+    timeout = setTimeout(typeChar, 1200);
+
+    return () => {
+      ctx.revert();
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
@@ -39,10 +60,12 @@ export default function HeroSection() {
         ref={textRef}
         className="relative z-10 text-center px-8 max-w-2xl"
       >
-        <h1 className="hero-title font-serif text-[52px] md:text-[72px] font-bold text-brand-primary leading-tight mb-4">
-          Hi! I'm
-          <br />
-          Fitrianah
+        <h1 className="hero-title font-serif text-[52px] md:text-[72px] font-bold text-brand-primary leading-tight mb-4 flex flex-col items-center">
+          <span className="mb-2">Hi! I'm</span>
+          <span className="text-[#B8860B] flex items-center h-[1.2em]">
+            {typedName}
+            <span className="animate-pulse w-[4px] h-[50px] md:h-[70px] bg-[#B8860B] ml-2"></span>
+          </span>
         </h1>
         <p className="hero-subtitle text-[14px] md:text-[16px] text-brand-secondary leading-relaxed mb-8 max-w-lg mx-auto">
           Results-Driven Operations Leader based in Tangerang, specializing in

@@ -10,9 +10,13 @@ const navLinks = [
   { label: 'CONTACT', href: '#contact' },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+  setIsOpen: (val: boolean) => void;
+}
+
+export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
   const [activeSection, setActiveSection] = useState('home');
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +38,9 @@ export default function Sidebar() {
   }, []);
 
   const handleClick = (href: string) => {
-    setMobileOpen(false);
+    if (window.innerWidth < 1024) {
+      setIsOpen(false);
+    }
     const el = document.querySelector(href);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -43,29 +49,49 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Mobile hamburger */}
+      {/* Mobile toggle button */}
       <button
-        onClick={() => setMobileOpen(!mobileOpen)}
-        className="fixed top-5 left-5 z-[60] p-2 lg:hidden"
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed top-5 left-5 z-[60] p-2 bg-white/80 backdrop-blur rounded-md shadow-sm lg:hidden"
         aria-label="Toggle menu"
       >
-        {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        {isOpen ? <X size={24} className="text-brand-primary" /> : <Menu size={24} className="text-brand-primary" />}
+      </button>
+
+      {/* Desktop floating open button (when sidebar is closed) */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className={`hidden lg:flex fixed top-6 left-6 z-[60] p-3 bg-white shadow-lg rounded-full text-brand-primary transition-all duration-300 hover:text-[#F5B304] hover:scale-110 ${
+          isOpen ? 'opacity-0 pointer-events-none -translate-x-10' : 'opacity-100 translate-x-0'
+        }`}
+        aria-label="Open menu"
+      >
+        <Menu size={24} />
       </button>
 
       {/* Overlay for mobile */}
-      {mobileOpen && (
+      {isOpen && (
         <div
-          className="fixed inset-0 bg-black/40 z-[45] lg:hidden"
-          onClick={() => setMobileOpen(false)}
+          className="fixed inset-0 bg-black/40 z-[45] lg:hidden transition-opacity"
+          onClick={() => setIsOpen(false)}
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-[280px] bg-sidebar z-50 flex flex-col items-center pt-12 pb-8 transition-transform duration-300 ${
-          mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        className={`fixed top-0 left-0 h-full w-[280px] bg-sidebar z-50 flex flex-col items-center pt-12 pb-8 transition-transform duration-300 ease-in-out shadow-2xl lg:shadow-none ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
+        {/* Close Button Desktop */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="hidden lg:flex absolute top-4 right-4 p-2 text-brand-secondary hover:text-[#F5B304] transition-colors"
+          aria-label="Close menu"
+        >
+          <X size={20} />
+        </button>
+
         {/* Profile image */}
         <div className="w-[140px] h-[140px] rounded-full overflow-hidden mb-6 border-4 border-white shadow-md">
           <img
@@ -86,7 +112,7 @@ export default function Sidebar() {
         </p>
 
         {/* Navigation */}
-        <nav className="flex flex-col items-center gap-5 flex-1">
+        <nav className="flex flex-col items-center gap-5 flex-1 w-full px-6">
           {navLinks.map(link => {
             const isActive = activeSection === link.href.slice(1);
             return (
@@ -97,10 +123,10 @@ export default function Sidebar() {
                   e.preventDefault();
                   handleClick(link.href);
                 }}
-                className={`text-[12px] tracking-[0.2em] transition-colors duration-200 ${
+                className={`text-[12px] tracking-[0.2em] transition-all duration-200 w-full text-center py-2 ${
                   isActive
-                    ? 'text-[#2c98f0] font-medium'
-                    : 'text-brand-primary hover:text-[#2c98f0]'
+                    ? 'text-[#F5B304] font-bold bg-white shadow-sm rounded-md'
+                    : 'text-brand-primary hover:text-[#F5B304]'
                 }`}
               >
                 {link.label}
