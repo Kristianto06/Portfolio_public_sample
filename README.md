@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# 🌟 Website Portofolio Pribadi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Selamat datang di repositori (*tempat penyimpanan kode*) untuk website portofolio pribadi. Website ini dibangun menggunakan teknologi modern seperti **React**, **Vite**, dan **TailwindCSS**, serta sudah diatur untuk otomatis *online* (*deploy*) menggunakan **GitHub Pages**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 Panduan Cepat untuk Pemula (Orang Awam)
 
-## React Compiler
+Tidak perlu menjadi programmer handal untuk mengubah isi teks atau foto di website portofolio Anda! Ikuti panduan sederhana di bawah ini.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Cara Mengubah Teks & Data (Pengalaman, Keahlian, dll)
+Seluruh teks dan data website Anda tersimpan di dalam folder `src/sections/`. 
+- **Hero Section (Bagian Paling Atas):** Buka file `src/sections/HeroSection.tsx`. Anda bisa mengubah nama atau teks sambutan di sana.
+- **Tentang Saya:** Buka file `src/sections/AboutSection.tsx`.
+- **Pengalaman Kerja:** Buka file `src/sections/ExperienceSection.tsx`. Cari bagian data pekerjaan untuk mengubah judul, nama perusahaan, atau tahun.
+- **Pendidikan:** Buka file `src/sections/EducationSection.tsx`.
+- **Kontak:** Buka file `src/sections/ContactSection.tsx`.
 
-## Expanding the ESLint configuration
+*💡 **Tips Penting:** Anda cukup mengganti teks biasa. Jangan menghapus simbol-simbol kode seperti `< >`, `{ }`, atau tanda kutip.*
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 2. Cara Mengubah Foto Profil
+1. Siapkan foto baru Anda.
+2. Pastikan file fotonya bernama `profile.jpg`.
+3. Masukkan dan timpa (*replace*) foto lama yang ada di dalam folder `public/images/`.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 3. Cara Memperbarui Website ke Internet (*Go Live*)
+Setelah Anda mengubah teks atau foto di komputer Anda, website yang ada di internet **tidak akan otomatis berubah** sampai Anda melakukan "Push" (mengirim perubahan ke server GitHub).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Buka **Terminal**, pastikan posisi Anda sudah berada di dalam folder `app` (ketik `cd app` jika belum), lalu jalankan 3 perintah ajaib ini secara berurutan:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git add .
+git commit -m "update: mengubah data portofolio"
+git push
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Selesai!** 🚀
+Sekarang Anda hanya perlu menunggu sekitar **1 hingga 2 menit**. GitHub di balik layar sedang memproses website Anda secara otomatis. Setelah itu, *Refresh* browser internet Anda, dan pembaruan Anda sudah bisa dilihat oleh seluruh dunia!
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Informasi Teknis (Untuk Developer)
+
+Jika Anda ingin menjalankan proyek ini secara lokal di komputer Anda untuk keperluan *testing* atau modifikasi lanjutan:
+
+1. **Install Dependencies (Aplikasi Pendukung):**
+   ```bash
+   npm install
+   ```
+
+2. **Jalankan Server Lokal (Live Preview):**
+   ```bash
+   npm run dev
+   ```
+   *Buka alamat `http://localhost:5173` di browser Anda.*
+
+3. **Build untuk Produksi:**
+   ```bash
+   npm run build
+   ```
