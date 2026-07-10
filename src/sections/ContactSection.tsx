@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import VolumetricPortrait from '../components/VolumetricPortrait';
-
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactSection() {
@@ -56,9 +54,8 @@ export default function ContactSection() {
       ref={sectionRef}
       className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]"
     >
-      {/* Left column - Dark panel with VolumetricPortrait */}
-      <div className="relative bg-dark min-h-[400px] flex items-center justify-center overflow-hidden">
-        <VolumetricPortrait />
+      {/* Left column - Dark panel */}
+      <div className="relative bg-[#111111] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center px-10">
           <h2 className="contact-heading font-serif text-[32px] md:text-[40px] font-bold text-white mb-4">
             LET'S CONNECT
