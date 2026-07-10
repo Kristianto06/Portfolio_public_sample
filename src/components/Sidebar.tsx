@@ -69,7 +69,7 @@ export default function Sidebar() {
         {/* Profile image */}
         <div className="w-[140px] h-[140px] rounded-full overflow-hidden mb-6 border-4 border-white shadow-md">
           <img
-            src="/images/profile.jpg"
+            src="images/profile.jpg"
             alt="Fitrianah"
             className="w-full h-full object-cover"
           />

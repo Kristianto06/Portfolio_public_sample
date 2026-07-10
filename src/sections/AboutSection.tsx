@@ -108,7 +108,7 @@ export default function AboutSection() {
         <div className="about-image flex justify-center lg:justify-end">
           <div className="relative w-full max-w-[380px]">
             <img
-              src="/images/profile.jpg"
+              src="images/profile.jpg"
               alt="Fitrianah - Operations Leader"
               className="w-full h-auto object-cover shadow-lg"
             />
