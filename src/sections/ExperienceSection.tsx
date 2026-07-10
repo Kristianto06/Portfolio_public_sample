@@ -22,7 +22,7 @@ const experienceData = [
   {
     title: 'Administrative Staff',
     company: 'YURIKO (Home Industry), Tangerang',
-    period: '2008',
+    period: '2008 - 2009',
     description:
       'Prepared daily production reports as MIS basis, managed incoming and outgoing stock reports, handled daily employee attendance and weekly payroll, prepared customer bills, and managed company petty cash.',
   },
@@ -43,7 +43,7 @@ const experienceData = [
   {
     title: 'Production Administration Staff',
     company: 'PT. Samsung PP',
-    period: '2004',
+    period: '2004 - 2005',
     description:
       'Monitored vendor purchase order fulfillment on daily production basis, ensuring timely delivery and inventory accuracy.',
   },
@@ -118,7 +118,7 @@ export default function ExperienceSection() {
                   <div className="w-[14px] h-[14px] rounded-full bg-white" />
                 </div>
               </div>
-              
+
               {/* Mobile layout */}
               <div className="md:hidden flex items-center h-[40px]">
                 <div className="w-[40px] h-[40px] rounded-full bg-[#F5B304] flex items-center justify-center z-10 flex-shrink-0">
