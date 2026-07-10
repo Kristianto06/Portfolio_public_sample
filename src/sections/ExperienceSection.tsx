@@ -108,18 +108,26 @@ export default function ExperienceSection() {
             className="timeline-entry relative flex flex-col md:flex-row gap-4 md:gap-8 mb-10"
           >
             {/* Date badge */}
-            <div className="md:w-[120px] flex-shrink-0 flex md:justify-end">
-              <div className="relative flex items-center">
-                <div className="w-[40px] h-[40px] rounded-full bg-[#F5B304] flex items-center justify-center z-10">
+            <div className="md:w-[120px] flex-shrink-0 relative">
+              {/* Desktop layout */}
+              <div className="hidden md:flex items-center justify-end w-full h-[40px]">
+                <span className="text-[12px] text-brand-secondary font-medium mr-4">
+                  {exp.period}
+                </span>
+                <div className="w-[40px] h-[40px] rounded-full bg-[#F5B304] flex items-center justify-center z-10 flex-shrink-0">
                   <div className="w-[14px] h-[14px] rounded-full bg-white" />
                 </div>
-                <span className="ml-4 md:hidden text-[12px] text-brand-secondary font-medium">
+              </div>
+              
+              {/* Mobile layout */}
+              <div className="md:hidden flex items-center h-[40px]">
+                <div className="w-[40px] h-[40px] rounded-full bg-[#F5B304] flex items-center justify-center z-10 flex-shrink-0">
+                  <div className="w-[14px] h-[14px] rounded-full bg-white" />
+                </div>
+                <span className="ml-4 text-[12px] text-brand-secondary font-medium">
                   {exp.period}
                 </span>
               </div>
-              <span className="hidden md:block text-[12px] text-brand-secondary font-medium mt-2 text-right">
-                {exp.period}
-              </span>
             </div>
 
             {/* Content */}
