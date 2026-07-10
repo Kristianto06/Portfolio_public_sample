@@ -4,9 +4,8 @@ Selamat datang di repositori (*tempat penyimpanan kode*) untuk website portofoli
 
 ---
 
-## 📖 Panduan Cepat untuk Pemula (Orang Awam)
-
-Tidak perlu menjadi programmer handal untuk mengubah isi teks atau foto di website portofolio Anda! Ikuti panduan sederhana di bawah ini.
+## 📖 Panduan Cepat
+Untuk mengubah isi teks atau foto di website portofolio Anda! Ikuti panduan sederhana di bawah ini.
 
 ### 1. Cara Mengubah Teks & Data (Pengalaman, Keahlian, dll)
 Seluruh teks dan data website Anda tersimpan di dalam folder `src/sections/`. 
@@ -39,7 +38,7 @@ Sekarang Anda hanya perlu menunggu sekitar **1 hingga 2 menit**. GitHub di balik
 
 ---
 
-## 🛠️ Informasi Teknis (Untuk Developer)
+## 🛠️ Informasi Teknis
 
 Jika Anda ingin menjalankan proyek ini secara lokal di komputer Anda untuk keperluan *testing* atau modifikasi lanjutan:
 
