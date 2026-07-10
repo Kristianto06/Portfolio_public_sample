@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 23%;
+    --card: 30 33% 97%;
+    --card-foreground: 0 0% 23%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 23%;
+    --primary: 44 96% 49%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 26% 93%;
+    --secondary-foreground: 0 0% 23%;
+    --muted: 30 26% 93%;
+    --muted-foreground: 0 0% 51%;
+    --accent: 44 96% 49%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 44 96% 49%;
+    --radius: 0.25rem;
+
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #3B3B3B;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .text-primary {
+    color: #3B3B3B;
+  }
+  .text-secondary {
+    color: #828282;
+  }
+  .text-accent {
+    color: #F5B304;
+  }
+  .bg-sidebar {
+    background-color: #F2EDE7;
+  }
+  .bg-section {
+    background-color: #FCFAF7;
+  }
+  .bg-dark {
+    background-color: #3B3B3B;
+  }
+  .bg-accent {
+    background-color: #F5B304;
+  }
+  .border-accent {
+    border-color: #F5B304;
+  }
+  .tracking-widest-custom {
+    letter-spacing: 0.2em;
+  }
+}
